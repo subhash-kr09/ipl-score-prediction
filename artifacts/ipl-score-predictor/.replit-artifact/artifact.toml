@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "IPL Score Predictor"
+description = "A live IPL innings intelligence dashboard that estimates final scores from current match state, explains the prediction, and tracks over-by-over momentum."
+version = "1.0.0"
+id = "artifacts/ipl-score-predictor"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 21854
+
+[services.development]
+run = "pnpm --filter @workspace/ipl-score-predictor run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ipl-score-predictor", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ipl-score-predictor/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21854"
+BASE_PATH = "/"

@@ -1,0 +1,232 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: prediction
+    description: IPL innings score prediction
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /prediction/options:
+    get:
+      operationId: getPredictionOptions
+      tags: [prediction]
+      summary: List supported match options
+      description: Returns teams, venues, and model readiness metadata for the predictor form.
+      responses:
+        "200":
+          description: Prediction options
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PredictionOptions"
+  /prediction:
+    post:
+      operationId: createPrediction
+      tags: [prediction]
+      summary: Predict the expected final innings score
+      description: Predicts a final score from the current innings state without using future match information.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PredictionInput"
+      responses:
+        "200":
+          description: Score prediction
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Prediction"
+        "400":
+          description: Invalid match state
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /prediction/model:
+    get:
+      operationId: getPredictionModel
+      tags: [prediction]
+      summary: Get model metrics and feature importance
+      description: Returns the currently selected model, validation metrics, and the most influential features.
+      responses:
+        "200":
+          description: Model diagnostics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModelDiagnostics"
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required: [error]
+    PredictionOptions:
+      type: object
+      properties:
+        teams:
+          type: array
+          items:
+            type: string
+        venues:
+          type: array
+          items:
+            type: string
+        maxOvers:
+          type: integer
+        modelReady:
+          type: boolean
+        trainingRows:
+          type: integer
+      required: [teams, venues, maxOvers, modelReady, trainingRows]
+    PredictionInput:
+      type: object
+      properties:
+        battingTeam:
+          type: string
+          minLength: 1
+        bowlingTeam:
+          type: string
+          minLength: 1
+        venue:
+          type: string
+          minLength: 1
+        currentScore:
+          type: integer
+          minimum: 0
+        oversCompleted:
+          type: number
+          minimum: 0
+          maximum: 20
+        wicketsLost:
+          type: integer
+          minimum: 0
+          maximum: 10
+        runsLast5Overs:
+          type: integer
+          minimum: 0
+        wicketsLast5Overs:
+          type: integer
+          minimum: 0
+          maximum: 5
+        targetScore:
+          type: ["integer", "null"]
+          minimum: 0
+      required:
+        - battingTeam
+        - bowlingTeam
+        - venue
+        - currentScore
+        - oversCompleted
+        - wicketsLost
+        - runsLast5Overs
+        - wicketsLast5Overs
+        - targetScore
+    Prediction:
+      type: object
+      properties:
+        predictedFinalScore:
+          type: integer
+        lowerBound:
+          type: integer
+        upperBound:
+          type: integer
+        predictedRemainingRuns:
+          type: integer
+        currentRunRate:
+          type: number
+        requiredRunRate:
+          type: ["number", "null"]
+        confidence:
+          type: integer
+        confidenceLabel:
+          type: string
+        modelName:
+          type: string
+        featuresUsed:
+          type: array
+          items:
+            type: string
+      required:
+        - predictedFinalScore
+        - lowerBound
+        - upperBound
+        - predictedRemainingRuns
+        - currentRunRate
+        - requiredRunRate
+        - confidence
+        - confidenceLabel
+        - modelName
+        - featuresUsed
+    ModelMetric:
+      type: object
+      properties:
+        name:
+          type: string
+        mae:
+          type: number
+        rmse:
+          type: number
+        r2:
+          type: number
+        selected:
+          type: boolean
+      required: [name, mae, rmse, r2, selected]
+    FeatureImportance:
+      type: object
+      properties:
+        feature:
+          type: string
+        importance:
+          type: number
+      required: [feature, importance]
+    ModelDiagnostics:
+      type: object
+      properties:
+        selectedModel:
+          type: string
+        validationStrategy:
+          type: string
+        trainedAt:
+          type: string
+        metrics:
+          type: array
+          items:
+            $ref: "#/components/schemas/ModelMetric"
+        featureImportance:
+          type: array
+          items:
+            $ref: "#/components/schemas/FeatureImportance"
+      required: [selectedModel, validationStrategy, trainedAt, metrics, featureImportance]
+

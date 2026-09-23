@@ -1,0 +1,714 @@
+I have an existing IPL Live Score Prediction web application. I want you to completely redesign the FRONTEND/UI to make it modern, attractive, professional, and suitable for a high-quality ML/AI portfolio project.
+
+IMPORTANT:
+- Do NOT change the existing machine learning model.
+- Do NOT change prediction logic.
+- Do NOT remove any existing functionality.
+- Do NOT change backend/API behavior unless absolutely required for the UI.
+- Only improve the UI/UX and frontend presentation.
+- Preserve all existing inputs, outputs, API calls, and prediction functionality.
+- First inspect the existing project structure and understand the current components before modifying anything.
+
+PROJECT:
+IPL Live Score Prediction System
+
+PURPOSE:
+The application predicts the expected final IPL score from the current match situation using historical IPL match data and machine learning.
+
+--------------------------------------------------
+DESIGN DIRECTION
+--------------------------------------------------
+
+Create a premium "IPL Analytics / Cricket Command Center" interface.
+
+The design should feel like a combination of:
+- ESPN Cricinfo
+- modern sports analytics dashboards
+- professional AI/ML dashboards
+- premium SaaS dashboards
+
+Use a dark, elegant theme.
+
+Primary background:
+- Deep navy / near-black
+
+Accent colors:
+- IPL-style blue
+- electric cyan
+- cricket green
+- yellow/gold for important predictions
+
+Use gradients carefully and avoid making the interface look overly flashy.
+
+Use:
+- Glassmorphism
+- subtle borders
+- soft shadows
+- rounded cards
+- smooth hover effects
+- clean typography
+- professional spacing
+- small animations
+
+Avoid:
+- excessive gradients
+- excessive animations
+- clutter
+- huge empty areas
+- unnecessary decorative elements
+
+--------------------------------------------------
+1. TOP NAVIGATION
+--------------------------------------------------
+
+Redesign the top navigation.
+
+Include:
+
+LEFT:
+🏏 IPL Score Predictor logo
+
+Logo text:
+"IPL PREDICT"
+
+Small subtitle:
+"AI CRICKET ANALYTICS"
+
+CENTER:
+Navigation tabs:
+
+• Live Prediction
+• Match Analytics
+• Model Performance
+• About
+
+RIGHT:
+● LIVE MODEL
+Season selector: 2025
+
+Profile/settings icon
+
+The LIVE MODEL indicator should have a subtle pulsing animation.
+
+--------------------------------------------------
+2. HERO SECTION
+--------------------------------------------------
+
+Replace the current large heading with a more engaging match-focused hero section.
+
+Example:
+
+LIVE IPL ANALYTICS
+CSK vs MI
+
+"Where is this innings heading?"
+
+Subtitle:
+
+"AI-powered score forecasting based on current match conditions and historical IPL data."
+
+Show a small live badge:
+
+🔴 LIVE INNINGS
+
+Add a subtle cricket-stadium/abstract cricket background pattern.
+
+Do not use a large distracting image.
+
+--------------------------------------------------
+3. MATCH HEADER CARD
+--------------------------------------------------
+
+Create a premium match card.
+
+Example:
+
+CSK                         MI
+Chennai Super Kings        Mumbai Indians
+
+142 / 4                    
+
+16.2 overs
+
+LIVE
+
+Add a cricket-style scoreboard.
+
+Show:
+
+CURRENT SCORE
+142 / 4
+
+OVERS
+16.2 / 20
+
+CURRENT RUN RATE
+8.77
+
+WICKETS
+4
+
+The current score should be the most visually prominent value.
+
+--------------------------------------------------
+4. MAIN DASHBOARD LAYOUT
+--------------------------------------------------
+
+Use a responsive 2-column layout on desktop.
+
+LEFT:
+Match Input / Match State
+
+RIGHT:
+AI Prediction
+
+On mobile:
+Stack them vertically.
+
+--------------------------------------------------
+5. MATCH STATE CARD
+--------------------------------------------------
+
+Create a beautiful "Match Situation" card.
+
+Header:
+
+MATCH SITUATION
+Live inputs used by the model
+
+Fields:
+
+Batting Team
+Bowling Team
+Venue
+
+Current Score
+Overs Completed
+Wickets Lost
+
+Runs in Last 5 Overs
+Wickets in Last 5 Overs
+
+Target Score
+
+Use modern input controls.
+
+Team inputs should use dropdowns with team logos/abbreviations if available.
+
+Venue should be a searchable dropdown if possible.
+
+Inputs should have:
+- clear labels
+- icons
+- focus animation
+- validation
+- proper spacing
+
+Add a large primary button:
+
+🔮 PREDICT FINAL SCORE
+
+Button should have a subtle animated glow on hover.
+
+--------------------------------------------------
+6. AI PREDICTION CARD
+--------------------------------------------------
+
+This should be the MAIN visual attraction.
+
+Title:
+
+AI SCORE FORECAST
+
+Subtitle:
+
+"Machine-learning prediction based on current match state"
+
+Display:
+
+PROJECTED FINISH
+
+188
+
+LIKELY RANGE
+
+176 — 202
+
+Make 188 extremely prominent.
+
+Below it create a horizontal prediction range visualization:
+
+LOW ───────●────────── HIGH
+176       188         202
+
+Use a smooth gradient from yellow → green → cyan.
+
+Add:
+
+Prediction Confidence
+78%
+
+Use a circular progress indicator or semi-circular gauge.
+
+Label:
+
+GOOD CONFIDENCE
+
+--------------------------------------------------
+7. LIVE METRICS
+--------------------------------------------------
+
+Below the prediction card, create 4 compact metric cards:
+
+CURRENT RATE
+8.77
+RPO
+
+TO COME
+46
+RUNS
+
+CONFIDENCE
+78%
+GOOD
+
+REQUIRED RATE
+--
+
+Each card should have a small icon and subtle hover animation.
+
+--------------------------------------------------
+8. SCORE PROJECTION GRAPH
+--------------------------------------------------
+
+Add a large interactive chart:
+
+"Score Projection"
+
+X-axis:
+Overs
+
+Y-axis:
+Runs
+
+Display:
+
+Actual Score
+Projected Score
+
+Use two different line styles.
+
+Example:
+
+Over 5 → 42
+Over 10 → 82
+Over 15 → 128
+Current → 142
+Projected → 188
+
+Add a shaded projected region.
+
+The graph should look like a professional sports analytics visualization.
+
+Use Chart.js/Recharts or the charting library already used in the project.
+
+--------------------------------------------------
+9. PREDICTION RANGE VISUALIZATION
+--------------------------------------------------
+
+Create another analytics card:
+
+"Where This Innings Could Finish"
+
+Display three scenarios:
+
+LOW
+176
+
+MOST LIKELY
+188
+
+HIGH
+202
+
+Use a horizontal probability/range visualization.
+
+Add a short explanation:
+
+"Based on current scoring rate, wickets remaining, recent scoring pattern and historical match conditions."
+
+--------------------------------------------------
+10. MATCH MOMENTUM
+--------------------------------------------------
+
+Add a "Match Momentum" card.
+
+Show:
+
+POWERPLAY
+████████░░
+GOOD
+
+MIDDLE OVERS
+███████░░░
+STABLE
+
+DEATH OVERS
+█████████░
+STRONG
+
+Use a visual momentum indicator.
+
+If the project already calculates relevant values, use real data.
+
+If not, create UI placeholders without inventing backend calculations.
+
+--------------------------------------------------
+11. HISTORICAL CONTEXT
+--------------------------------------------------
+
+Add a section:
+
+HISTORICAL CONTEXT
+
+Show cards such as:
+
+CSK AVG SCORE
+171
+
+MI AVG CONCEDED
+168
+
+VENUE AVG
+176
+
+H2H AVG
+174
+
+IMPORTANT:
+If these values are not currently available from the backend, do NOT hardcode fake statistics.
+
+Instead:
+- connect them to existing data if available
+OR
+- hide the metric
+OR
+- display "Data unavailable"
+
+Never present fabricated statistics as real data.
+
+--------------------------------------------------
+12. MODEL INSIGHTS
+--------------------------------------------------
+
+Create an attractive section:
+
+WHY THE MODEL PREDICTS 188
+
+Show feature importance using horizontal bars.
+
+Example:
+
+Current Run Rate       ████████████
+Current Score          ██████████
+Runs Last 5 Overs      ████████
+Wickets Lost           ██████
+Venue                  █████
+Batting Team           ████
+
+Again, use actual model feature importance if available.
+
+Do not invent ML statistics.
+
+--------------------------------------------------
+13. MODEL DIAGNOSTICS PAGE
+--------------------------------------------------
+
+Redesign the existing "Model Diagnostics" page.
+
+Create professional analytics cards:
+
+MODEL PERFORMANCE
+
+MAE
+X.X runs
+
+RMSE
+X.X runs
+
+R² SCORE
+X.XX
+
+BEST MODEL
+Random Forest / XGBoost / actual trained model
+
+Add charts:
+
+• Actual vs Predicted
+• Model Comparison
+• Feature Importance
+• Prediction Error Distribution
+
+Use the real values from the backend/model.
+
+--------------------------------------------------
+14. LIVE OVER-BY-OVER MODE
+--------------------------------------------------
+
+Add an optional live timeline:
+
+OVER-BY-OVER FORECAST
+
+Over       Score       Prediction
+
+5          43/1        172
+10         81/2        178
+15         128/3       184
+16.2       142/4       188
+
+The timeline should visually show how the prediction changes as the innings progresses.
+
+If historical predictions are not stored, do not create fake historical data.
+
+Instead provide the UI structure for future predictions.
+
+--------------------------------------------------
+15. ANIMATIONS
+--------------------------------------------------
+
+Add subtle professional animations:
+
+- Score number count-up animation
+- Prediction card fade-in
+- Prediction number transition
+- Progress bar animation
+- Hover effects
+- Button hover animation
+- Live indicator pulse
+- Chart drawing animation
+
+Do NOT over-animate the page.
+
+Animations should feel smooth and premium.
+
+Respect prefers-reduced-motion.
+
+--------------------------------------------------
+16. RESPONSIVE DESIGN
+--------------------------------------------------
+
+The UI must work perfectly on:
+
+Desktop
+Laptop
+Tablet
+Mobile
+
+At mobile width:
+
+- Sidebar becomes collapsible
+- Cards stack vertically
+- Charts resize
+- Match header remains readable
+- Inputs become full width
+- Prediction score remains prominent
+
+Do not allow horizontal scrolling.
+
+--------------------------------------------------
+17. SIDEBAR
+--------------------------------------------------
+
+Create a cleaner modern sidebar.
+
+Logo:
+
+🏏 IPL PREDICT
+
+Navigation:
+
+🏠 Dashboard
+🔴 Live Prediction
+📊 Analytics
+🤖 Model Diagnostics
+📈 History
+⚙ Settings
+
+At bottom:
+
+MODEL STATUS
+
+● ONLINE
+
+"Prediction engine ready"
+
+Add subtle visual separation.
+
+--------------------------------------------------
+18. EMPTY / LOADING / ERROR STATES
+--------------------------------------------------
+
+Create professional states.
+
+Loading:
+
+"AI model is analyzing the current innings..."
+
+Show animated skeleton/loading indicator.
+
+Error:
+
+"Unable to generate prediction."
+
+Show:
+"Check the match inputs and try again."
+
+Empty state:
+
+"Enter the current match situation to generate a forecast."
+
+--------------------------------------------------
+19. COLOR SYSTEM
+--------------------------------------------------
+
+Use a consistent color system.
+
+Background:
+Dark navy / black
+
+Primary:
+IPL blue
+
+Secondary:
+Cyan
+
+Success:
+Green
+
+Prediction:
+Gold / yellow
+
+Danger:
+Red
+
+Text:
+White / light gray
+
+Muted:
+Slate gray
+
+Do not use too many colors.
+
+--------------------------------------------------
+20. TYPOGRAPHY
+--------------------------------------------------
+
+Use a modern font such as:
+
+Inter
+Manrope
+Plus Jakarta Sans
+
+Use:
+- bold large numbers
+- medium headings
+- readable secondary text
+- uppercase small labels for analytics
+
+--------------------------------------------------
+21. ICONS
+--------------------------------------------------
+
+Use Lucide Icons or the icon library already present.
+
+Use icons for:
+
+Score
+Overs
+Wickets
+Venue
+Teams
+Prediction
+Confidence
+Analytics
+Model
+Settings
+
+Avoid emoji icons if the current technology supports professional SVG icons.
+
+--------------------------------------------------
+22. IMPORTANT UX IMPROVEMENT
+--------------------------------------------------
+
+The most important information hierarchy should be:
+
+1. LIVE MATCH
+2. CURRENT SCORE
+3. PREDICTED FINAL SCORE
+4. PREDICTION RANGE
+5. CONFIDENCE
+6. MATCH METRICS
+7. CHARTS
+8. MODEL DETAILS
+
+The user should understand the prediction within 3 seconds after opening the dashboard.
+
+--------------------------------------------------
+23. DO NOT BREAK FUNCTIONALITY
+--------------------------------------------------
+
+Before making changes:
+
+1. Inspect all frontend files.
+2. Identify the existing prediction API/function.
+3. Identify all existing inputs.
+4. Identify how prediction results are returned.
+5. Identify the existing charts/components.
+6. Preserve all backend connections.
+
+Then redesign the UI around the existing functionality.
+
+Do not replace working ML logic with dummy data.
+
+Do not hardcode prediction values.
+
+Do not remove model diagnostics.
+
+Do not remove existing form inputs.
+
+--------------------------------------------------
+24. FINAL RESULT
+--------------------------------------------------
+
+The final application should look like a premium:
+
+"IPL AI Cricket Analytics Platform"
+
+rather than a basic college project.
+
+The UI should immediately communicate:
+
+LIVE MATCH → CURRENT STATE → AI PREDICTION → CONFIDENCE → ANALYTICS
+
+Make the design visually impressive enough to showcase in:
+
+- Resume
+- GitHub
+- College project presentation
+- Technical interview
+- Portfolio
+
+After implementation, run the application and verify:
+
+✓ Prediction still works
+✓ Inputs work
+✓ Charts work
+✓ Navigation works
+✓ Model diagnostics work
+✓ No console errors
+✓ No broken API calls
+✓ Responsive layout works
+✓ Mobile layout works
+✓ No fake statistics are displayed
+
+Finally, provide a short summary of all UI changes made.
